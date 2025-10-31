@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escopo de Variáveis - Global vs Local</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 18px;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escopo de Variáveis em JavaScript</h1>
+
+    <p>
+        Clique no botão abaixo para ver a diferença entre uma variável global e uma variável local.
+    </p>
+
+    <button onclick="exemploEscopo()">Clique aqui para testar o escopo</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Variável Global
+        let variavelGlobal = "Eu sou uma variável global!";
+
+        function exemploEscopo() {
+            // Variável Local
+            let variavelLocal = "Eu sou uma variável local!";
+
+            // Exibindo o valor da variável local dentro da função
+            let resultado = "Dentro da função:<br>";
+            resultado += "Escopo local: " + variavelLocal + "<br>";
+            resultado += "Escopo global: " + variavelGlobal + "<br>";
+
+            // Tentando acessar a variável local fora da função (isso não funciona)
+            resultado += "<br>Tentando acessar a variável local fora da função:<br>";
+            try {
+                resultado += "Escopo local fora da função: " + variavelLocal;
+            } catch (error) {
+                resultado += "Erro: Não é possível acessar a variável local fora da função!<br>";
+            }
+
+            // Exibindo o resultado na página
+            document.getElementById("output").innerHTML = resultado;
+        }
+
+        // Exibindo a variável global fora da função
+        console.log("Escopo global fora da função:", variavelGlobal);
+    </script>
+</body>
+</html>
